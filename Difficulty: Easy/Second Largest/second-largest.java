@@ -1,20 +1,18 @@
-import java.util.*;
 class Solution {
     public int getSecondLargest(int[] arr) {
         // code here
-        if(arr==null || arr.length<2){
-            return -1;
-        }
-        int largest=-1;
-        int secondLargest=-1;
-        for(int num : arr){
-            if(num>largest){
-                secondLargest=largest;
-                largest=num;
-            }else if(num<largest && num>secondLargest){
-                secondLargest=num;
+        int n=arr.length;
+        int slargest=-1;
+        int largest=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]>largest){
+                slargest=largest;
+                largest=arr[i];
+            }
+            else if(arr[i]<largest && arr[i]>slargest){
+                slargest=arr[i];
             }
         }
-        return secondLargest;
+        return slargest;
     }
 }
