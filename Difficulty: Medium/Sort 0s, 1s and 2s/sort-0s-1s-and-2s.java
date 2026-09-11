@@ -2,27 +2,23 @@ class Solution {
     public void sort012(int[] arr) {
         // code here
         int n=arr.length;
-        int c0=0,c1=0,c2=0;
-        for(int i=0;i<n;i++){
-            if(arr[i]==0){
-                c0++;
+        int low=0,mid=0,high=n-1;
+
+        while(mid<=high){
+            if(arr[mid]==0){
+                arr[mid]=arr[low];
+                arr[low]=0;
+                low++;
+                mid++;
             }
-            if(arr[i]==1){
-                c1++;
+            else if(arr[mid]==1){
+                mid++;
             }
-            if(arr[i]==2){
-                c2++;
+            else{
+                arr[mid]=arr[high];
+                arr[high]=2;
+                high--;
             }
-        }
-        int i=0;
-        while(c0-->0){
-            arr[i++]=0;
-        }
-        while(c1-->0){
-            arr[i++]=1;
-        }
-        while(c2-->0){
-            arr[i++]=2;
         }
     }
 }
